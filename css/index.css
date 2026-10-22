@@ -1,5 +1,8 @@
 ```css
-/* CONFIGURAÇÃO GERAL */
+/* =========================
+   1. CONFIGURAÇÃO GERAL
+========================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -23,7 +26,10 @@ a:hover {
     text-decoration: underline;
 }
 
-/* CABEÇALHO */
+/* =========================
+   2. CABEÇALHO
+========================= */
+
 header {
     display: flex;
     align-items: center;
@@ -31,7 +37,7 @@ header {
     flex-wrap: wrap;
     gap: 20px;
 
-    padding: 20px 6%;
+    padding: 20px 5%;
     background-color: #ffffff;
     border-bottom: 2px solid #d8cbea;
 }
@@ -48,15 +54,18 @@ header span {
 
 header section {
     display: flex;
-    gap: 24px;
     flex-wrap: wrap;
+    gap: 24px;
 }
 
 header a {
     font-weight: bold;
 }
 
-/* CONTEÚDO PRINCIPAL */
+/* =========================
+   3. CONTEÚDO PRINCIPAL
+========================= */
+
 main {
     width: 100%;
     max-width: 1200px;
@@ -64,10 +73,13 @@ main {
     padding: 40px 30px;
 }
 
-/* APRESENTAÇÃO INICIAL */
+/* =========================
+   4. APRESENTAÇÃO INICIAL
+========================= */
+
 .intro {
-    padding: 55px 35px;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
+    padding: 50px 30px;
 
     text-align: center;
     background-color: #ffffff;
@@ -92,71 +104,88 @@ main {
     margin: 6px;
     padding: 12px 22px;
 
+    color: #ffffff;
+    background-color: #663399;
     border: 2px solid #663399;
     border-radius: 6px;
-    background-color: #663399;
-    color: #ffffff;
     font-weight: bold;
 }
 
 .intro a + a {
-    background-color: #ffffff;
     color: #663399;
+    background-color: #ffffff;
 }
 
-/* SEÇÃO DE FERRAMENTAS */
-main > section:nth-child(2) {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
+/* =========================
+   5. SEÇÃO DE FERRAMENTAS
+========================= */
 
-    margin-bottom: 50px;
+.ferramentas {
+    margin-bottom: 60px;
 }
 
-main > section:nth-child(2) > h2,
-main > section:nth-child(2) > span {
-    grid-column: 1 / -1;
-}
-
-main > section:nth-child(2) > h2 {
-    margin-bottom: -8px;
+.ferramentas > h2 {
+    margin-bottom: 8px;
     font-size: 30px;
     color: #542783;
 }
 
-main > section:nth-child(2) > span {
-    margin-bottom: 10px;
+.ferramentas > span {
+    display: block;
+    margin-bottom: 30px;
     color: #666078;
 }
 
-/* CARDS DAS FERRAMENTAS */
-main > section:nth-child(2) > .card {
+/* =========================
+   6. GRID DOS CARDS
+========================= */
+
+.ferramentas-grid {
+    display: grid;
+
+    /* Três colunas iguais */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    /* Espaço real entre os cards */
+    gap: 28px;
+
     width: 100%;
+    align-items: stretch;
+}
+
+.card {
+    /* Remove interferências de regras antigas */
+    float: none;
+    width: auto;
     min-width: 0;
-    min-height: 190px;
     margin: 0;
-    padding: 24px;
+
+    min-height: 220px;
+    padding: 25px;
 
     background-color: #ffffff;
     border: 2px solid #d8cbea;
-    border-radius: 10px;
+    border-radius: 12px;
 }
 
 .card h3 {
     margin-bottom: 12px;
     font-size: 22px;
+    line-height: 1.4;
     color: #663399;
 }
 
 .card p {
     font-size: 17px;
+    line-height: 1.7;
 }
 
-/* OBJETIVOS */
-.objetivos {
-    grid-column: 1 / -1;
+/* =========================
+   7. OBJETIVOS
+========================= */
 
-    margin-top: 30px;
+.objetivos {
+    margin-top: 45px;
     padding: 30px;
 
     background-color: #ffffff;
@@ -181,11 +210,12 @@ main > section:nth-child(2) > .card {
     margin-bottom: 12px;
 }
 
-/* CHAMADA PARA CADASTRO */
-.criar-conta {
-    grid-column: 1 / -1;
+/* =========================
+   8. CHAMADA PARA CADASTRO
+========================= */
 
-    margin-top: 5px;
+.criar-conta {
+    margin-top: 35px;
     padding: 35px 25px;
 
     text-align: center;
@@ -209,10 +239,10 @@ main > section:nth-child(2) > .card {
     margin: 8px 0 18px;
     padding: 12px 22px;
 
+    color: #ffffff;
     background-color: #663399;
     border: 2px solid #663399;
     border-radius: 6px;
-    color: #ffffff;
     font-weight: bold;
 }
 
@@ -220,13 +250,19 @@ main > section:nth-child(2) > .card {
     font-weight: bold;
 }
 
-/* FOCO DO TECLADO */
+/* =========================
+   9. ACESSIBILIDADE
+========================= */
+
 a:focus-visible {
     outline: 3px solid #292333;
     outline-offset: 4px;
 }
 
-/* TABLETS */
+/* =========================
+   10. TABLETS
+========================= */
+
 @media (max-width: 850px) {
     header {
         justify-content: center;
@@ -238,8 +274,9 @@ a:focus-visible {
         width: 100%;
     }
 
-    main > section:nth-child(2) {
+    .ferramentas-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
     }
 
     .intro h1 {
@@ -247,7 +284,10 @@ a:focus-visible {
     }
 }
 
-/* CELULARES */
+/* =========================
+   11. CELULARES
+========================= */
+
 @media (max-width: 550px) {
     body {
         font-size: 17px;
@@ -279,16 +319,14 @@ a:focus-visible {
         margin: 12px 0;
     }
 
-    main > section:nth-child(2) {
-        grid-template-columns: 1fr;
-    }
-
-    main > section:nth-child(2) > h2 {
-        font-size: 26px;
+    .ferramentas-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
     }
 
     .card {
         min-height: auto;
+        padding: 22px;
     }
 
     .card h3,
