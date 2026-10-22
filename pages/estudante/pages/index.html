@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Estudante</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="../js/index.js" defer></script>
+</head>
+
+<body>
+
+    <header class="cabecalho">
+
+        <section class="perfil">
+            <label for="foto" class="foto-perfil">
+                <img id="preview-foto" src="" alt="Foto do estudante">
+                <span id="texto-foto">Foto do estudante</span>
+            </label>
+
+            <input type="file" id="foto" accept="image/*" hidden>
+
+            <section class="dados-estudante">
+                <h2 id="nome-estudante">Nome do estudante</h2>
+                <p id="escolaridade">Nível de escolaridade</p>
+            </section>
+        </section>
+
+        <nav class="menu" aria-label="Menu principal">
+            <a href="../pages/editar-perfil.html">Editar perfil</a>
+            <a href="../pages/dicionario.html">Consultar palavras</a>
+            <a href="../pages/minijogo.html">Minijogo</a>
+        </nav>
+
+    </header>
+
+    <main class="conteudo">
+
+        <h1>Progresso dos capítulos do minijogo</h1>
+
+        <section
+            id="lista-capitulos"
+            class="lista-capitulos"
+            aria-label="Capítulos do minijogo">
+        </section>
+
+    </main>
+
+</body>
+</html>

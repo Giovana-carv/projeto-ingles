@@ -1,0 +1,384 @@
+
+/* ==============================
+   CONFIGURAÇÕES GERAIS
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --fundo: #F5F0FA;
+    --roxo-principal: #63358B;
+    --roxo-escuro: #44205F;
+    --lilas-borda: #D6C3E8;
+    --branco: #FFFFFF;
+    --texto: #2E2435;
+    --texto-secundario: #685C72;
+    --lilas-hover: #EDE3F5;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--texto);
+    background-color: var(--fundo);
+}
+
+/* ==============================
+   CABEÇALHO
+================================ */
+
+.cabecalho {
+    width: 100%;
+    min-height: 150px;
+    padding: 22px 5%;
+    background-color: var(--branco);
+    border-bottom: 2px solid var(--lilas-borda);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* Perfil do estudante */
+
+.perfil {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.foto-perfil {
+    width: 125px;
+    height: 110px;
+    flex-shrink: 0;
+    overflow: hidden;
+    cursor: pointer;
+
+    border: 2px solid var(--lilas-borda);
+    border-radius: 50%;
+    background-color: var(--fundo);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    transition: border-color 0.2s ease;
+}
+
+.foto-perfil:hover {
+    border-color: var(--roxo-principal);
+}
+
+.foto-perfil img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.foto-perfil span {
+    padding: 8px;
+    color: var(--roxo-escuro);
+    font-size: 16px;
+}
+
+.dados-estudante {
+    min-width: 180px;
+}
+
+.dados-estudante h2 {
+    color: var(--roxo-escuro);
+    font-size: 23px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.dados-estudante p {
+    margin-top: 4px;
+    color: var(--texto-secundario);
+    font-size: 18px;
+    overflow-wrap: anywhere;
+}
+
+/* ==============================
+   MENU DE NAVEGAÇÃO
+================================ */
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.menu a {
+    padding: 10px 14px;
+    border-radius: 7px;
+
+    color: var(--roxo-escuro);
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.menu a:hover {
+    color: var(--roxo-principal);
+    background-color: var(--lilas-hover);
+}
+
+/* ==============================
+   CONTEÚDO PRINCIPAL
+================================ */
+
+.conteudo {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 65px 40px;
+}
+
+.conteudo h1 {
+    margin-bottom: 35px;
+
+    color: var(--roxo-escuro);
+    font-size: 29px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+/* ==============================
+   LISTA DE CAPÍTULOS
+================================ */
+
+.lista-capitulos {
+    width: 100%;
+    max-width: 500px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Cartão individual */
+
+.capitulo {
+    width: 100%;
+    overflow: hidden;
+
+    background-color: var(--branco);
+    border: 1px solid var(--lilas-borda);
+    border-radius: 9px;
+
+    transition: border-color 0.2s ease;
+}
+
+.capitulo:hover {
+    border-color: var(--roxo-principal);
+}
+
+/* Cabeçalho expansível */
+
+.capitulo-cabecalho {
+    width: 100%;
+    min-height: 60px;
+    padding: 15px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    border: none;
+    background-color: var(--branco);
+    color: var(--roxo-escuro);
+
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.capitulo-cabecalho:hover {
+    background-color: var(--lilas-hover);
+}
+
+.capitulo-cabecalho[aria-expanded="true"] {
+    color: var(--branco);
+    background-color: var(--roxo-principal);
+    border-bottom: 1px solid var(--lilas-borda);
+}
+
+/* Conteúdo expandido */
+
+.capitulo-conteudo {
+    min-height: 140px;
+    padding: 25px 22px;
+    background-color: var(--branco);
+}
+
+.capitulo-conteudo h3 {
+    margin-bottom: 15px;
+
+    color: var(--roxo-escuro);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.capitulo-conteudo p,
+.capitulo-conteudo li {
+    color: var(--texto);
+    font-size: 18px;
+    overflow-wrap: anywhere;
+}
+
+.capitulo-conteudo p {
+    margin-bottom: 8px;
+}
+
+.capitulo-conteudo ul {
+    padding-left: 25px;
+}
+
+.capitulo-conteudo li {
+    margin-bottom: 8px;
+}
+
+/* ==============================
+   ACESSIBILIDADE
+================================ */
+
+.menu a:focus-visible,
+.capitulo-cabecalho:focus-visible,
+.foto-perfil:focus-visible {
+    outline: 3px solid var(--roxo-principal);
+    outline-offset: 4px;
+}
+
+/* Respeita a preferência por menos animações */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+/* ==============================
+   TABLETS
+================================ */
+
+@media (max-width: 900px) {
+    .cabecalho {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+    }
+
+    .menu {
+        justify-content: flex-start;
+    }
+
+    .conteudo {
+        padding: 50px 25px;
+    }
+}
+
+/* ==============================
+   CELULARES
+================================ */
+
+@media (max-width: 500px) {
+    body {
+        font-size: 18px;
+    }
+
+    .cabecalho {
+        padding: 18px 5%;
+    }
+
+    .perfil {
+        width: 100%;
+        align-items: center;
+        gap: 14px;
+    }
+
+    .foto-perfil {
+        width: 95px;
+        height: 95px;
+    }
+
+    .dados-estudante {
+        min-width: 0;
+        flex: 1;
+    }
+
+    .dados-estudante h2 {
+        font-size: 20px;
+    }
+
+    .dados-estudante p {
+        font-size: 17px;
+    }
+
+    .menu {
+        width: 100%;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .menu a {
+        padding: 10px;
+    }
+
+    .conteudo {
+        width: 100%;
+        padding: 35px 5%;
+    }
+
+    .conteudo h1 {
+        font-size: 25px;
+        margin-bottom: 25px;
+    }
+
+    .lista-capitulos {
+        gap: 20px;
+    }
+
+    .capitulo-cabecalho {
+        min-height: 58px;
+        padding: 14px;
+        font-size: 19px;
+    }
+
+    .capitulo-conteudo {
+        padding: 20px 16px;
+    }
+
+    .capitulo-conteudo h3 {
+        font-size: 19px;
+    }
+}

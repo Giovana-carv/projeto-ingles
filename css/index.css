@@ -1,7 +1,7 @@
-```css
-/* =========================
-   1. CONFIGURAÇÃO GERAL
-========================= */
+
+/* ==============================
+   CONFIGURAÇÕES GERAIS
+================================ */
 
 * {
     margin: 0;
@@ -9,342 +9,377 @@
     box-sizing: border-box;
 }
 
+:root {
+    --fundo: #F5F0FA;
+    --roxo-principal: #63358B;
+    --roxo-escuro: #44205F;
+    --lilas-borda: #D6C3E8;
+    --branco: #FFFFFF;
+    --texto: #2E2435;
+    --texto-secundario: #685C72;
+    --lilas-hover: #EDE3F5;
+}
+
 body {
     font-family: Arial, sans-serif;
     font-size: 18px;
     line-height: 1.6;
-    color: #292333;
-    background-color: #f5f3fa;
+    color: var(--texto);
+    background-color: var(--fundo);
 }
 
-a {
-    color: #663399;
-    text-decoration: none;
-}
+/* ==============================
+   CABEÇALHO
+================================ */
 
-a:hover {
-    text-decoration: underline;
-}
+.cabecalho {
+    width: 100%;
+    min-height: 150px;
+    padding: 22px 5%;
+    background-color: var(--branco);
+    border-bottom: 2px solid var(--lilas-borda);
 
-/* =========================
-   2. CABEÇALHO
-========================= */
-
-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 30px;
     flex-wrap: wrap;
-    gap: 20px;
-
-    padding: 20px 5%;
-    background-color: #ffffff;
-    border-bottom: 2px solid #d8cbea;
 }
 
-.nome-site {
-    font-size: 26px;
-    color: #542783;
-}
+/* Perfil do estudante */
 
-header span {
-    font-size: 16px;
-    color: #666078;
-}
-
-header section {
+.perfil {
     display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.foto-perfil {
+    width: 125px;
+    height: 110px;
+    flex-shrink: 0;
+    overflow: hidden;
+    cursor: pointer;
+
+    border: 2px solid var(--lilas-borda);
+    border-radius: 50%;
+    background-color: var(--fundo);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    transition: border-color 0.2s ease;
+}
+
+.foto-perfil:hover {
+    border-color: var(--roxo-principal);
+}
+
+.foto-perfil img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.foto-perfil span {
+    padding: 8px;
+    color: var(--roxo-escuro);
+    font-size: 16px;
+}
+
+.dados-estudante {
+    min-width: 180px;
+}
+
+.dados-estudante h2 {
+    color: var(--roxo-escuro);
+    font-size: 23px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.dados-estudante p {
+    margin-top: 4px;
+    color: var(--texto-secundario);
+    font-size: 18px;
+    overflow-wrap: anywhere;
+}
+
+/* ==============================
+   MENU DE NAVEGAÇÃO
+================================ */
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
-    gap: 24px;
+    gap: 15px;
 }
 
-header a {
-    font-weight: bold;
+.menu a {
+    padding: 10px 14px;
+    border-radius: 7px;
+
+    color: var(--roxo-escuro);
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
 }
 
-/* =========================
-   3. CONTEÚDO PRINCIPAL
-========================= */
+.menu a:hover {
+    color: var(--roxo-principal);
+    background-color: var(--lilas-hover);
+}
 
-main {
-    width: 100%;
-    max-width: 1200px;
+/* ==============================
+   CONTEÚDO PRINCIPAL
+================================ */
+
+.conteudo {
+    width: 90%;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 40px 30px;
+    padding: 65px 40px;
 }
 
-/* =========================
-   4. APRESENTAÇÃO INICIAL
-========================= */
+.conteudo h1 {
+    margin-bottom: 35px;
 
-.intro {
-    margin-bottom: 60px;
-    padding: 50px 30px;
-
-    text-align: center;
-    background-color: #ffffff;
-    border: 2px solid #d8cbea;
-    border-radius: 12px;
-}
-
-.intro h1 {
-    margin-bottom: 20px;
-    font-size: 36px;
+    color: var(--roxo-escuro);
+    font-size: 29px;
+    font-weight: 700;
     line-height: 1.3;
-    color: #542783;
 }
 
-.intro p {
-    max-width: 800px;
-    margin: 0 auto 25px;
-}
+/* ==============================
+   LISTA DE CAPÍTULOS
+================================ */
 
-.intro a {
-    display: inline-block;
-    margin: 6px;
-    padding: 12px 22px;
-
-    color: #ffffff;
-    background-color: #663399;
-    border: 2px solid #663399;
-    border-radius: 6px;
-    font-weight: bold;
-}
-
-.intro a + a {
-    color: #663399;
-    background-color: #ffffff;
-}
-
-/* =========================
-   5. SEÇÃO DE FERRAMENTAS
-========================= */
-
-.ferramentas {
-    margin-bottom: 60px;
-}
-
-.ferramentas > h2 {
-    margin-bottom: 8px;
-    font-size: 30px;
-    color: #542783;
-}
-
-.ferramentas > span {
-    display: block;
-    margin-bottom: 30px;
-    color: #666078;
-}
-
-/* =========================
-   6. GRID DOS CARDS
-========================= */
-
-.ferramentas-grid {
-    display: grid;
-
-    /* Três colunas iguais */
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-
-    /* Espaço real entre os cards */
-    gap: 28px;
-
+.lista-capitulos {
     width: 100%;
-    align-items: stretch;
+    max-width: 500px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
 
-.card {
-    /* Remove interferências de regras antigas */
-    float: none;
-    width: auto;
-    min-width: 0;
-    margin: 0;
+/* Cartão individual */
 
-    min-height: 220px;
-    padding: 25px;
+.capitulo {
+    width: 100%;
+    overflow: hidden;
 
-    background-color: #ffffff;
-    border: 2px solid #d8cbea;
-    border-radius: 12px;
+    background-color: var(--branco);
+    border: 1px solid var(--lilas-borda);
+    border-radius: 9px;
+
+    transition: border-color 0.2s ease;
 }
 
-.card h3 {
-    margin-bottom: 12px;
-    font-size: 22px;
-    line-height: 1.4;
-    color: #663399;
+.capitulo:hover {
+    border-color: var(--roxo-principal);
 }
 
-.card p {
-    font-size: 17px;
-    line-height: 1.7;
+/* Cabeçalho expansível */
+
+.capitulo-cabecalho {
+    width: 100%;
+    min-height: 60px;
+    padding: 15px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    border: none;
+    background-color: var(--branco);
+    color: var(--roxo-escuro);
+
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
 }
 
-/* =========================
-   7. OBJETIVOS
-========================= */
-
-.objetivos {
-    margin-top: 45px;
-    padding: 30px;
-
-    background-color: #ffffff;
-    border: 2px solid #d8cbea;
-    border-radius: 12px;
+.capitulo-cabecalho:hover {
+    background-color: var(--lilas-hover);
 }
 
-.objetivos h2 {
-    margin-bottom: 20px;
-    font-size: 30px;
-    color: #542783;
+.capitulo-cabecalho[aria-expanded="true"] {
+    color: var(--branco);
+    background-color: var(--roxo-principal);
+    border-bottom: 1px solid var(--lilas-borda);
 }
 
-.objetivos h3 {
-    margin-top: 20px;
-    margin-bottom: 6px;
-    font-size: 22px;
-    color: #663399;
+/* Conteúdo expandido */
+
+.capitulo-conteudo {
+    min-height: 140px;
+    padding: 25px 22px;
+    background-color: var(--branco);
 }
 
-.objetivos p {
-    margin-bottom: 12px;
+.capitulo-conteudo h3 {
+    margin-bottom: 15px;
+
+    color: var(--roxo-escuro);
+    font-size: 20px;
+    font-weight: 700;
 }
 
-/* =========================
-   8. CHAMADA PARA CADASTRO
-========================= */
-
-.criar-conta {
-    margin-top: 35px;
-    padding: 35px 25px;
-
-    text-align: center;
-    background-color: #eee7f7;
-    border: 2px solid #cbb7e5;
-    border-radius: 12px;
+.capitulo-conteudo p,
+.capitulo-conteudo li {
+    color: var(--texto);
+    font-size: 18px;
+    overflow-wrap: anywhere;
 }
 
-.criar-conta h2 {
-    margin-bottom: 12px;
-    font-size: 30px;
-    color: #542783;
+.capitulo-conteudo p {
+    margin-bottom: 8px;
 }
 
-.criar-conta p {
-    margin-bottom: 16px;
+.capitulo-conteudo ul {
+    padding-left: 25px;
 }
 
-.criar-conta > a {
-    display: inline-block;
-    margin: 8px 0 18px;
-    padding: 12px 22px;
-
-    color: #ffffff;
-    background-color: #663399;
-    border: 2px solid #663399;
-    border-radius: 6px;
-    font-weight: bold;
+.capitulo-conteudo li {
+    margin-bottom: 8px;
 }
 
-.criar-conta p a {
-    font-weight: bold;
-}
+/* ==============================
+   ACESSIBILIDADE
+================================ */
 
-/* =========================
-   9. ACESSIBILIDADE
-========================= */
-
-a:focus-visible {
-    outline: 3px solid #292333;
+.menu a:focus-visible,
+.capitulo-cabecalho:focus-visible,
+.foto-perfil:focus-visible {
+    outline: 3px solid var(--roxo-principal);
     outline-offset: 4px;
 }
 
-/* =========================
-   10. TABLETS
-========================= */
+/* Respeita a preferência por menos animações */
 
-@media (max-width: 850px) {
-    header {
-        justify-content: center;
-        text-align: center;
-    }
-
-    header section {
-        justify-content: center;
-        width: 100%;
-    }
-
-    .ferramentas-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 24px;
-    }
-
-    .intro h1 {
-        font-size: 32px;
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
     }
 }
 
-/* =========================
-   11. CELULARES
-========================= */
+/* ==============================
+   TABLETS
+================================ */
 
-@media (max-width: 550px) {
+@media (max-width: 900px) {
+    .cabecalho {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+    }
+
+    .menu {
+        justify-content: flex-start;
+    }
+
+    .conteudo {
+        padding: 50px 25px;
+    }
+}
+
+/* ==============================
+   CELULARES
+================================ */
+
+@media (max-width: 500px) {
     body {
-        font-size: 17px;
+        font-size: 18px;
     }
 
-    header {
-        padding: 20px;
+    .cabecalho {
+        padding: 18px 5%;
     }
 
-    header section {
-        justify-content: center;
-        gap: 16px;
+    .perfil {
+        width: 100%;
+        align-items: center;
+        gap: 14px;
     }
 
-    main {
-        padding: 25px 16px;
+    .foto-perfil {
+        width: 95px;
+        height: 95px;
     }
 
-    .intro {
-        padding: 30px 20px;
+    .dados-estudante {
+        min-width: 0;
+        flex: 1;
     }
 
-    .intro h1 {
-        font-size: 28px;
-    }
-
-    .intro a {
-        display: block;
-        margin: 12px 0;
-    }
-
-    .ferramentas-grid {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 20px;
-    }
-
-    .card {
-        min-height: auto;
-        padding: 22px;
-    }
-
-    .card h3,
-    .objetivos h3 {
+    .dados-estudante h2 {
         font-size: 20px;
     }
 
-    .objetivos {
-        padding: 22px 18px;
+    .dados-estudante p {
+        font-size: 17px;
     }
 
-    .objetivos h2,
-    .criar-conta h2 {
-        font-size: 26px;
+    .menu {
+        width: 100%;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 5px;
     }
 
-    .criar-conta {
-        padding: 28px 18px;
+    .menu a {
+        padding: 10px;
+    }
+
+    .conteudo {
+        width: 100%;
+        padding: 35px 5%;
+    }
+
+    .conteudo h1 {
+        font-size: 25px;
+        margin-bottom: 25px;
+    }
+
+    .lista-capitulos {
+        gap: 20px;
+    }
+
+    .capitulo-cabecalho {
+        min-height: 58px;
+        padding: 14px;
+        font-size: 19px;
+    }
+
+    .capitulo-conteudo {
+        padding: 20px 16px;
+    }
+
+    .capitulo-conteudo h3 {
+        font-size: 19px;
     }
 }
-```
+z
