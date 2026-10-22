@@ -1,0 +1,637 @@
+
+/* ========================================
+1. CONFIGURAÇÕES GERAIS
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --fundo: #F5F0FA;
+    --roxo-principal: #63358B;
+    --roxo-escuro: #44205F;
+    --lilas-borda: #D6C3E8;
+    --branco: #FFFFFF;
+
+    --sombra: rgba(68, 32, 95, 0.08);
+    --lilas-selecionado: #F0E7F7;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--roxo-escuro);
+    background-color: var(--fundo);
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+
+/* ========================================
+2. ESTRUTURA PRINCIPAL
+======================================== */
+
+.pagina-minijogo {
+    width: 100%;
+    min-height: 100vh;
+    padding: 30px 5% 20px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ========================================
+3. CABEÇALHO
+Capítulo à esquerda e consulta à direita
+======================================== */
+
+.cabecalho-jogo {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    align-items: start;
+    gap: 35px;
+}
+
+.identificacao {
+    padding: 35px 10px 0;
+}
+
+.etiqueta-capitulo {
+    display: inline-block;
+    margin-bottom: 12px;
+
+    color: var(--roxo-principal);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.identificacao h1 {
+    margin-bottom: 10px;
+
+    color: var(--roxo-escuro);
+    font-size: 30px;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+.identificacao p {
+    color: var(--roxo-principal);
+    font-size: 20px;
+}
+
+
+/* ========================================
+4. BOTÃO CONSULTAR PALAVRAS
+======================================== */
+
+.consulta-palavras {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+}
+
+#botao-palavras {
+    width: 100%;
+    min-height: 85px;
+    padding: 15px;
+
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    color: var(--roxo-escuro);
+    background-color: var(--branco);
+
+    border: 1px solid var(--lilas-borda);
+    border-radius: 12px;
+
+    text-align: left;
+
+    box-shadow: 0 4px 14px var(--sombra);
+
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+#botao-palavras:hover,
+#botao-palavras[aria-expanded="true"] {
+    border-color: var(--roxo-principal);
+    background-color: var(--lilas-selecionado);
+}
+
+.icone-palavras {
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--branco);
+    background-color: var(--roxo-principal);
+
+    border-radius: 9px;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.texto-botao-palavras {
+    min-width: 0;
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.texto-botao-palavras strong {
+    color: var(--roxo-escuro);
+    font-size: 17px;
+}
+
+.texto-botao-palavras small {
+    color: var(--roxo-principal);
+    font-size: 14px;
+}
+
+#indicador-menu {
+    color: var(--roxo-principal);
+    font-size: 25px;
+}
+
+
+/* ========================================
+5. MENU EXPANSÍVEL DE PALAVRAS
+======================================== */
+
+.lista-palavras {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+
+    width: 100%;
+    max-height: 350px;
+    overflow-y: auto;
+
+    padding: 22px;
+
+    color: var(--roxo-escuro);
+    background-color: var(--branco);
+
+    border: 1px solid var(--lilas-borda);
+    border-radius: 12px;
+
+    box-shadow: 0 8px 24px var(--sombra);
+}
+
+.lista-palavras h2 {
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+
+    color: var(--roxo-escuro);
+    border-bottom: 1px solid var(--lilas-borda);
+
+    font-size: 20px;
+}
+
+.lista-palavras ul {
+    padding-left: 24px;
+}
+
+.lista-palavras li {
+    margin-bottom: 9px;
+    color: var(--roxo-escuro);
+    overflow-wrap: anywhere;
+}
+
+#mensagem-palavras {
+    color: var(--roxo-principal);
+    font-size: 16px;
+}
+
+
+/* ========================================
+6. ÁREA PRINCIPAL
+Centralização da questão
+======================================== */
+
+.conteudo-jogo {
+    flex: 1;
+    width: 100%;
+    min-height: 650px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 35px 0;
+}
+
+
+/* ========================================
+7. CARTÃO DA QUESTÃO
+======================================== */
+
+.area-questao {
+    width: 100%;
+    max-width: 760px;
+    min-height: 590px;
+
+    margin: 0 auto;
+    padding: 35px 38px;
+
+    color: var(--roxo-escuro);
+    background-color: var(--branco);
+
+    border: 1px solid var(--lilas-borda);
+    border-radius: 15px;
+
+    box-shadow: 0 8px 25px var(--sombra);
+}
+
+
+/* ========================================
+8. IDENTIFICAÇÃO DA QUESTÃO
+======================================== */
+
+.progresso-questao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--lilas-borda);
+}
+
+#numero-questao {
+    color: var(--roxo-principal);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.indicador-alternativas {
+    padding: 5px 12px;
+
+    color: var(--roxo-escuro);
+    background-color: var(--fundo);
+
+    border: 1px solid var(--lilas-borda);
+    border-radius: 20px;
+
+    font-size: 14px;
+}
+
+
+/* ========================================
+9. ENUNCIADO
+======================================== */
+
+.cabecalho-questao {
+    padding: 28px 0 25px;
+    text-align: center;
+}
+
+.cabecalho-questao h2 {
+    margin-bottom: 15px;
+
+    color: var(--roxo-escuro);
+    font-size: 27px;
+    line-height: 1.4;
+}
+
+#texto-questao {
+    width: 100%;
+    max-width: 590px;
+    min-height: 55px;
+
+    margin: 0 auto;
+
+    color: var(--roxo-escuro);
+    font-size: 19px;
+    overflow-wrap: anywhere;
+}
+
+
+/* ========================================
+10. ALTERNATIVAS
+Uma abaixo da outra
+======================================== */
+
+#opcoes-questao {
+    width: 100%;
+    min-width: 0;
+    border: none;
+}
+
+#opcoes-questao legend {
+    width: 100%;
+    margin-bottom: 16px;
+
+    color: var(--roxo-escuro);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.opcao {
+    position: relative;
+
+    width: 100%;
+    min-height: 64px;
+
+    margin-bottom: 12px;
+    padding: 12px 15px;
+
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    color: var(--roxo-escuro);
+    background-color: var(--branco);
+
+    border: 1px solid var(--lilas-borda);
+    border-radius: 9px;
+
+    cursor: pointer;
+    overflow-wrap: anywhere;
+
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.opcao:hover {
+    border-color: var(--roxo-principal);
+    background-color: var(--fundo);
+}
+
+.opcao input[type="radio"] {
+    width: 21px;
+    height: 21px;
+
+    margin: 0;
+    flex-shrink: 0;
+
+    accent-color: var(--roxo-principal);
+    cursor: pointer;
+}
+
+.letra-opcao {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--roxo-escuro);
+    background-color: var(--fundo);
+
+    border: 1px solid var(--lilas-borda);
+    border-radius: 8px;
+
+    font-weight: 700;
+}
+
+.texto-opcao {
+    min-width: 0;
+    flex: 1;
+    overflow-wrap: anywhere;
+}
+
+.marcador-selecao {
+    display: none;
+    flex-shrink: 0;
+
+    color: var(--roxo-principal);
+    font-weight: 700;
+}
+
+.opcao.selecionada {
+    padding: 11px 14px;
+
+    color: var(--roxo-escuro);
+    background-color: var(--lilas-selecionado);
+
+    border: 2px solid var(--roxo-principal);
+}
+
+.opcao.selecionada .letra-opcao {
+    color: var(--branco);
+    background-color: var(--roxo-principal);
+    border-color: var(--roxo-principal);
+}
+
+.opcao.selecionada .marcador-selecao {
+    display: inline;
+}
+
+
+/* ========================================
+11. BOTÃO DE CONFIRMAÇÃO
+======================================== */
+
+#botao-responder {
+    width: 100%;
+    min-height: 54px;
+
+    margin-top: 12px;
+    padding: 12px 18px;
+
+    color: var(--branco);
+    background-color: var(--roxo-principal);
+
+    border: 1px solid var(--roxo-principal);
+    border-radius: 9px;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+#botao-responder:hover:not(:disabled) {
+    color: var(--branco);
+    background-color: var(--roxo-escuro);
+    border-color: var(--roxo-escuro);
+}
+
+#botao-responder:disabled {
+    color: var(--roxo-escuro);
+    background-color: var(--lilas-borda);
+    border-color: var(--lilas-borda);
+    cursor: not-allowed;
+}
+
+#mensagem-resposta {
+    min-height: 28px;
+    margin-top: 12px;
+
+    color: var(--roxo-escuro);
+    font-size: 16px;
+    overflow-wrap: anywhere;
+}
+
+
+/* ========================================
+12. RODAPÉ
+======================================== */
+
+.rodape-jogo {
+    padding: 18px 0 0;
+    border-top: 1px solid var(--lilas-borda);
+    text-align: center;
+}
+
+.rodape-jogo p {
+    color: var(--roxo-principal);
+    font-size: 14px;
+}
+
+
+/* ========================================
+13. ACESSIBILIDADE
+======================================== */
+
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--roxo-escuro);
+    outline-offset: 3px;
+}
+
+.opcao:focus-within {
+    border-color: var(--roxo-principal);
+}
+
+
+/* ========================================
+14. TABLETS
+======================================== */
+
+@media (max-width: 850px) {
+    .pagina-minijogo {
+        padding: 25px 4% 20px;
+    }
+
+    .cabecalho-jogo {
+        grid-template-columns: minmax(0, 1fr) 300px;
+        gap: 22px;
+    }
+
+    .identificacao {
+        padding-top: 25px;
+    }
+
+    .conteudo-jogo {
+        min-height: 620px;
+    }
+
+    .area-questao {
+        padding: 28px;
+    }
+}
+
+
+/* ========================================
+15. CELULARES
+======================================== */
+
+@media (max-width: 650px) {
+    .pagina-minijogo {
+        padding: 20px 15px;
+    }
+
+    .cabecalho-jogo {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    .identificacao {
+        padding: 5px 0 0;
+    }
+
+    .identificacao h1 {
+        font-size: 26px;
+    }
+
+    .identificacao p {
+        font-size: 18px;
+    }
+
+    #botao-palavras {
+        min-height: 75px;
+    }
+
+    .conteudo-jogo {
+        min-height: 0;
+        padding: 28px 0;
+    }
+
+    .area-questao {
+        min-height: 0;
+        padding: 22px 16px;
+        border-radius: 12px;
+    }
+
+    .cabecalho-questao {
+        padding: 23px 0;
+    }
+
+    .cabecalho-questao h2 {
+        font-size: 24px;
+    }
+
+    #texto-questao {
+        font-size: 18px;
+    }
+
+    #opcoes-questao legend {
+        font-size: 17px;
+    }
+
+    .opcao {
+        min-height: 60px;
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .opcao.selecionada {
+        padding: 11px;
+    }
+
+    .rodape-jogo {
+        margin-top: 10px;
+    }
+}

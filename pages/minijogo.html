@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Minijogo de inglês instrumental com questões e consulta de vocabulário."
+    >
+
+    <title>Minijogo | Inglês Instrumental</title>
+
+    <link rel="stylesheet" href="../css/minijogo.css">
+    <script src="../js/minijogo.js" defer></script>
+</head>
+
+<body>
+
+    <div class="pagina-minijogo">
+
+        <!-- Cabeçalho: capítulo à esquerda e menu à direita -->
+        <header class="cabecalho-jogo">
+
+            <section class="identificacao" aria-label="Capítulo atual">
+
+                <p class="subtitulo">SEU APRENDIZADO</p>
+
+                <h1 id="capitulo">Capítulo 1</h1>
+
+                <p class="nivel">
+                    <span class="indicador-nivel" aria-hidden="true"></span>
+                    <span id="nivel">Nível iniciante</span>
+                </p>
+
+            </section>
+
+            <!-- Menu expansível de palavras -->
+            <aside class="consulta-palavras">
+
+                <button
+                    type="button"
+                    id="botao-palavras"
+                    aria-expanded="false"
+                    aria-controls="lista-palavras"
+                >
+
+                    <span class="icone-palavras" aria-hidden="true">Aa</span>
+
+                    <span class="texto-botao">
+                        <strong>Consultar palavras</strong>
+                        <small>Consulte seu vocabulário</small>
+                    </span>
+
+                    <span id="indicador-menu" aria-hidden="true">⌄</span>
+
+                </button>
+
+                <section
+                    id="lista-palavras"
+                    class="lista-palavras"
+                    aria-label="Lista de palavras consultadas"
+                    hidden
+                >
+
+                    <h2>Seu vocabulário</h2>
+
+                    <ul id="palavras"></ul>
+
+                    <p id="mensagem-palavras">
+                        Nenhuma palavra consultada ainda.
+                    </p>
+
+                </section>
+
+            </aside>
+
+        </header>
+
+        <!-- Área independente usada para centralizar a questão -->
+        <main class="conteudo-jogo">
+
+            <section
+                class="area-questao"
+                aria-labelledby="titulo-questao"
+            >
+
+                <div class="topo-questao">
+
+                    <span id="numero-questao">QUESTÃO</span>
+
+                    <span class="etiqueta-alternativas">
+                        4 alternativas
+                    </span>
+
+                </div>
+
+                <div class="cabecalho-questao">
+
+                    <h2 id="titulo-questao">Hora de praticar</h2>
+
+                    <p id="texto-questao">
+                        As questões deste capítulo serão exibidas
+                        aqui quando o conteúdo estiver disponível.
+                    </p>
+
+                </div>
+
+                <form id="form-questao">
+
+                    <fieldset id="opcoes-questao">
+
+                        <legend>Selecione uma alternativa</legend>
+
+                        <label class="opcao">
+                            <input
+                                type="radio"
+                                name="resposta"
+                                value="A"
+                            >
+
+                            <span class="letra-opcao">A</span>
+                            <span class="texto-opcao">Alternativa A</span>
+                            <span class="marcador-selecao" aria-hidden="true">✓</span>
+                        </label>
+
+                        <label class="opcao">
+                            <input
+                                type="radio"
+                                name="resposta"
+                                value="B"
+                            >
+
+                            <span class="letra-opcao">B</span>
+                            <span class="texto-opcao">Alternativa B</span>
+                            <span class="marcador-selecao" aria-hidden="true">✓</span>
+                        </label>
+
+                        <label class="opcao">
+                            <input
+                                type="radio"
+                                name="resposta"
+                                value="C"
+                            >
+
+                            <span class="letra-opcao">C</span>
+                            <span class="texto-opcao">Alternativa C</span>
+                            <span class="marcador-selecao" aria-hidden="true">✓</span>
+                        </label>
+
+                        <label class="opcao">
+                            <input
+                                type="radio"
+                                name="resposta"
+                                value="D"
+                            >
+
+                            <span class="letra-opcao">D</span>
+                            <span class="texto-opcao">Alternativa D</span>
+                            <span class="marcador-selecao" aria-hidden="true">✓</span>
+                        </label>
+
+                    </fieldset>
+
+                    <button type="submit" id="botao-responder">
+                        Confirmar resposta
+                    </button>
+
+                    <p
+                        id="mensagem-resposta"
+                        role="status"
+                        aria-live="polite"
+                    ></p>
+
+                </form>
+
+            </section>
+
+        </main>
+
+        <footer class="rodape-jogo">
+            <p>Inglês Instrumental <span aria-hidden="true">·</span> Aprenda no seu ritmo</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
