@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/cadastro.css">
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <section>
+        <form action="">
+            <label for="nome">Nome completo</label>
+            <input id="nome" type="text" placeholder="Seu nome" required>
+            <label for="email">E-mail</label>
+            <input type="email" type="email" placeholder="seu@email.com">
+            <label for="senha">Senha</label>
+            <input id="senha" type="password" placeholder="minimo de 6 caracters">
+            <label for="senha">Confirmar senha</label>
+            <input id="senha" type="password">
+            <label for="cursando">Você está cursando:</label>
+            <select id="cursando" name="cursando" required>
+                <option value="curso" selected disabled>curso</option>
+                <option value="ensino_fundamental_i">Ensino Fundamental I</option>
+                <option value="ensino_fundamental_i_incompleto">Ensino Fundamental I Incompleto</option>
+                <option value="ensino_fundamental_ii">Ensino Fundamental II </option>
+                <option value="ensino_fundamental_ii_incompleto">Ensino Fundamental II Incompleto</option>
+                <option value="ensino_medio">Ensino Médio</option>
+                <option value="ensino_medio_incompleto">Ensino Médio Incompleto</option>
+                <option value="ensino_superior">Ensino Superior</option>
+                <option value="ensino_superior_incompleto">Ensino Superior Incompleto</option>
+            </select>
+            <label for="nivel">Nível de Inglês</label>
+            <select id="nivel" name="nivel" required>
+                <option value="nivel" selected disabled>nivel</option>
+                <option value="iniciante">Iniciante</option>
+                <option value="intermediario">Intermediario</option>
+                <option value="avancado">Avançado</option>
+            </select>
+            <p id="descricao-ingles">
+                Selecione um nível para ver a descrição.
+            </p>
+
+            <button type="submit">Criar Conta</button>
+            <p>Já tem uma conta? <a href="../pages/login.html">Entrar</a></p>
+        </form>
+    </section>
+</body>
+
+</html>
+
+<script>
+    const formulario = document.querySelector("form");
+    const cursando = document.getElementById("cursando");
+
+    formulario.addEventListener("submit", function (event) {
+        if (cursando.value === " ") {
+            event.preventDefault();
+            alert("Selecione seu nível de ensino antes de continuar.");
+        }
+    });
+
+    const nivel = document.getElementById("nivel");
+    const descricao = document.getElementById("descricao-ingles");
+
+    nivel.addEventListener("change", function () {
+        switch (nivel.value) {
+            case "iniciante":
+                descricao.textContent =
+                    "Compreende palavras e frases simples do cotidiano.";
+                break;
+
+            case "intermediario":
+                descricao.textContent =
+                    "Consegue conversar sobre diversos assuntos e compreender textos mais elaborados.";
+                break;
+
+            case "avancado":
+                descricao.textContent =
+                    "Consegue se comunicar com fluência e compreender conteúdos complexos.";
+                break;
+
+        }
+    });
+</script>

@@ -1,0 +1,312 @@
+```css
+/* CONFIGURAÇÃO GERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #292333;
+    background-color: #f5f3fa;
+}
+
+a {
+    color: #663399;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* CABEÇALHO */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    padding: 20px 6%;
+    background-color: #ffffff;
+    border-bottom: 2px solid #d8cbea;
+}
+
+.nome-site {
+    font-size: 26px;
+    color: #542783;
+}
+
+header span {
+    font-size: 16px;
+    color: #666078;
+}
+
+header section {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+header a {
+    font-weight: bold;
+}
+
+/* CONTEÚDO PRINCIPAL */
+main {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 30px;
+}
+
+/* APRESENTAÇÃO INICIAL */
+.intro {
+    padding: 55px 35px;
+    margin-bottom: 50px;
+
+    text-align: center;
+    background-color: #ffffff;
+    border: 2px solid #d8cbea;
+    border-radius: 12px;
+}
+
+.intro h1 {
+    margin-bottom: 20px;
+    font-size: 36px;
+    line-height: 1.3;
+    color: #542783;
+}
+
+.intro p {
+    max-width: 800px;
+    margin: 0 auto 25px;
+}
+
+.intro a {
+    display: inline-block;
+    margin: 6px;
+    padding: 12px 22px;
+
+    border: 2px solid #663399;
+    border-radius: 6px;
+    background-color: #663399;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.intro a + a {
+    background-color: #ffffff;
+    color: #663399;
+}
+
+/* SEÇÃO DE FERRAMENTAS */
+main > section:nth-child(2) {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+
+    margin-bottom: 50px;
+}
+
+main > section:nth-child(2) > h2,
+main > section:nth-child(2) > span {
+    grid-column: 1 / -1;
+}
+
+main > section:nth-child(2) > h2 {
+    margin-bottom: -8px;
+    font-size: 30px;
+    color: #542783;
+}
+
+main > section:nth-child(2) > span {
+    margin-bottom: 10px;
+    color: #666078;
+}
+
+/* CARDS DAS FERRAMENTAS */
+main > section:nth-child(2) > .card {
+    width: 100%;
+    min-width: 0;
+    min-height: 190px;
+    margin: 0;
+    padding: 24px;
+
+    background-color: #ffffff;
+    border: 2px solid #d8cbea;
+    border-radius: 10px;
+}
+
+.card h3 {
+    margin-bottom: 12px;
+    font-size: 22px;
+    color: #663399;
+}
+
+.card p {
+    font-size: 17px;
+}
+
+/* OBJETIVOS */
+.objetivos {
+    grid-column: 1 / -1;
+
+    margin-top: 30px;
+    padding: 30px;
+
+    background-color: #ffffff;
+    border: 2px solid #d8cbea;
+    border-radius: 12px;
+}
+
+.objetivos h2 {
+    margin-bottom: 20px;
+    font-size: 30px;
+    color: #542783;
+}
+
+.objetivos h3 {
+    margin-top: 20px;
+    margin-bottom: 6px;
+    font-size: 22px;
+    color: #663399;
+}
+
+.objetivos p {
+    margin-bottom: 12px;
+}
+
+/* CHAMADA PARA CADASTRO */
+.criar-conta {
+    grid-column: 1 / -1;
+
+    margin-top: 5px;
+    padding: 35px 25px;
+
+    text-align: center;
+    background-color: #eee7f7;
+    border: 2px solid #cbb7e5;
+    border-radius: 12px;
+}
+
+.criar-conta h2 {
+    margin-bottom: 12px;
+    font-size: 30px;
+    color: #542783;
+}
+
+.criar-conta p {
+    margin-bottom: 16px;
+}
+
+.criar-conta > a {
+    display: inline-block;
+    margin: 8px 0 18px;
+    padding: 12px 22px;
+
+    background-color: #663399;
+    border: 2px solid #663399;
+    border-radius: 6px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.criar-conta p a {
+    font-weight: bold;
+}
+
+/* FOCO DO TECLADO */
+a:focus-visible {
+    outline: 3px solid #292333;
+    outline-offset: 4px;
+}
+
+/* TABLETS */
+@media (max-width: 850px) {
+    header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    header section {
+        justify-content: center;
+        width: 100%;
+    }
+
+    main > section:nth-child(2) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .intro h1 {
+        font-size: 32px;
+    }
+}
+
+/* CELULARES */
+@media (max-width: 550px) {
+    body {
+        font-size: 17px;
+    }
+
+    header {
+        padding: 20px;
+    }
+
+    header section {
+        justify-content: center;
+        gap: 16px;
+    }
+
+    main {
+        padding: 25px 16px;
+    }
+
+    .intro {
+        padding: 30px 20px;
+    }
+
+    .intro h1 {
+        font-size: 28px;
+    }
+
+    .intro a {
+        display: block;
+        margin: 12px 0;
+    }
+
+    main > section:nth-child(2) {
+        grid-template-columns: 1fr;
+    }
+
+    main > section:nth-child(2) > h2 {
+        font-size: 26px;
+    }
+
+    .card {
+        min-height: auto;
+    }
+
+    .card h3,
+    .objetivos h3 {
+        font-size: 20px;
+    }
+
+    .objetivos {
+        padding: 22px 18px;
+    }
+
+    .objetivos h2,
+    .criar-conta h2 {
+        font-size: 26px;
+    }
+
+    .criar-conta {
+        padding: 28px 18px;
+    }
+}
+```
